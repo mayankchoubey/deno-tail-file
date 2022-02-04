@@ -3,8 +3,7 @@ This module provides facility to tail a file in Deno.
 
 ## Dependencies
 
-This module uses two dependencies from Deno's standard library: 
-- BufReader
+This module uses a single dependency from Deno's standard library: 
 - readStringDelim
 
 ## Usage
