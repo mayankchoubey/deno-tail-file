@@ -27,7 +27,7 @@ for await (const line of tail.start()) {
 To stop tailing, use the stop API:
 
 ```ts
-tail.close();
+tail.stop();
 ```
 
 ## Example
