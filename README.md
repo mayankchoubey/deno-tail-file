@@ -1,2 +1,43 @@
-# deno-tail-file
-Tail a file in Deno
+# Tail a file in Deno
+This module provides facility to tail a file in Deno.
+
+## Dependencies
+
+This module uses two dependencies from Deno's standard library: 
+- BufReader
+- readStringDelim
+
+## Usage
+To tail a file, import the Tail class & create a tail object by providing the file name.
+
+```ts
+import { Tail } from "./mod.ts";
+
+const tail = new Tail("/var/tmp/testFile.txt");
+```
+
+To start tailing, use the start API that returns an async iterable:
+
+```ts
+for await (const line of tail.start()) {
+  //Process line
+}
+```
+
+To stop tailing, use the stop API:
+
+```ts
+tail.close();
+```
+
+## Example
+Here is a complete example:
+
+```ts
+import { Tail } from "https://deno.land/x/tail@1.0.0/mod.ts";
+
+const tail = new Tail("/var/tmp/testFile.txt");
+for await (const line of tail.start()) {
+  console.log("Got a line:", line);
+}
+```
