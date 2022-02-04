@@ -10,7 +10,7 @@ This module uses a single dependency from Deno's standard library:
 To tail a file, import the Tail class & create a tail object by providing the file name.
 
 ```ts
-import { Tail } from "./mod.ts";
+import { Tail } from "https://deno.land/x/tail@1.0.1/mod.ts";
 
 const tail = new Tail("/var/tmp/testFile.txt");
 ```
