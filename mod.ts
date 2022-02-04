@@ -1,4 +1,4 @@
-import { BufReader, readStringDelim } from "./deps.ts";
+import { readStringDelim } from "./deps.ts";
 
 const LF = "\n";
 
@@ -13,10 +13,10 @@ export class Tail {
     this.fileName = fileName;
   }
 
-  private async getReader(): Promise<BufReader> {
+  private async getReader(): Promise<Deno.File> {
     const fileReader = await Deno.open(this.fileName);
     await Deno.seek(fileReader.rid, await this.getSize(), Deno.SeekMode.Start);
-    return new BufReader(fileReader);
+    return fileReader;
   }
 
   private async getSize() {
